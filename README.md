@@ -1,6 +1,6 @@
-# halo-plugin-sitepush
+# halo-plugin-ads
 
-Halo 2.x 搜索引擎主动推送插件
+Halo 2.x 谷歌广告ads文件支持插件
 
 ## 功能简介
 
