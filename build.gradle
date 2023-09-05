@@ -5,7 +5,7 @@ plugins {
     id "run.halo.plugin.devtools" version "0.0.4"
 }
 
-group 'run.halo.starter'
+group 'com.lph.ads'
 sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
@@ -13,6 +13,19 @@ repositories {
     maven { url 'https://s01.oss.sonatype.org/content/repositories/releases' }
     maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
     maven { url 'https://repo.spring.io/milestone' }
+}
+
+jar {
+    enabled = true
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest.attributes(
+            'Plugin-Version': "${project.version}",
+    )
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
 }
 
 dependencies {
@@ -27,15 +40,3 @@ test {
     useJUnitPlatform()
 }
 
-node {
-    nodeProjectDir = file("${project.projectDir}/console")
-}
-
-task buildFrontend(type: PnpmTask) {
-    args = ['build']
-}
-
-build {
-    // build frontend before build
-    tasks.getByName('compileJava').dependsOn('buildFrontend')
-}

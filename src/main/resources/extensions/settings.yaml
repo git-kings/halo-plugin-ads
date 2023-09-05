@@ -1,0 +1,14 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: plugin-ads-settings
+spec:
+  forms:
+    - group: basic
+      label: Settings
+      formSchema:
+        - $formkit: code
+          name: ads_content
+          label: "Ads-Text"
+          value: "google.com, pub-xxxx, DIRECT, xxxxxx"
+          help: "google.com, pub-xxxx, DIRECT, xxxxx"

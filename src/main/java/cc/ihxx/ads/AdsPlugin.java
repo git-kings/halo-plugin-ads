@@ -1,4 +1,4 @@
-package run.halo.starter;
+package cc.ihxx.ads;
 
 import org.pf4j.PluginWrapper;
 import org.springframework.stereotype.Component;
@@ -13,19 +13,19 @@ import run.halo.app.plugin.BasePlugin;
  * @since 1.0.0
  */
 @Component
-public class StarterPlugin extends BasePlugin {
+public class AdsPlugin extends BasePlugin {
 
-    public StarterPlugin(PluginWrapper wrapper) {
+    public AdsPlugin(PluginWrapper wrapper) {
         super(wrapper);
     }
 
     @Override
     public void start() {
-        System.out.println("插件启动成功！");
+        System.out.println("Ads Plugin Start Success??");
     }
 
     @Override
     public void stop() {
-        System.out.println("插件停止！");
+        System.out.println("Ads Plugin Stop Success??");
     }
 }
